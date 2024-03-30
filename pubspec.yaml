@@ -35,6 +35,8 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
+  get: ^4.6.6
+  web_socket_channel: ^2.4.4
 
 dev_dependencies:
   flutter_test:
@@ -62,6 +64,51 @@ flutter:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
+
+    assets:
+     - assets/images/battery_1.png
+     - assets/images/battery_2.png
+     - assets/images/dirty_water.png
+     - assets/images/clean_water.png
+     - assets/images/gray_water.png
+     - assets/images/temp_out.png
+     - assets/images/temp_in.png
+     - assets/images/return.png
+     - assets/images/out.png
+     - assets/images/lamp.png
+     - assets/images/lamp_off.png
+     - assets/images/light_out.png
+     - assets/images/light_out_off.png
+     - assets/images/heater.png
+     - assets/images/heater_off.png
+     - assets/images/water_pump.png
+     - assets/images/water_pump_off.png
+     - assets/images/pump_out.png
+     - assets/images/pump_out_off.png
+     - assets/images/inverter.png
+     - assets/images/inverter_off.png
+     - assets/images/logo.png
+     - assets/images/tv.png
+     - assets/images/tv_off.png
+     - assets/images/usb.png
+     - assets/images/usb_off.png
+     - assets/images/option.png
+     - assets/images/option_off.png
+     - assets/images/applogo.png
+
+
+
+     
+  fonts:
+    - family: High Summit
+      fonts:
+        - asset: assets/fonts/High Summit.ttf
+    
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Bold.ttf
+        
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
