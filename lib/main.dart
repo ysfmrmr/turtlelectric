@@ -2,12 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:turt_24/devices.dart';
-import 'package:turt_24/light.dart';
-import 'package:turt_24/menu.dart';
-import 'package:turt_24/Settings/settings.dart';
-import 'package:turt_24/specs.dart';
-import 'package:turt_24/Get/bools.dart';
+import 'package:turtlelectric/devices.dart';
+import 'package:turtlelectric/light.dart';
+import 'package:turtlelectric/menu.dart';
+import 'package:turtlelectric/Settings/settings.dart';
+import 'package:turtlelectric/specs.dart';
+import 'package:turtlelectric/Get/bools.dart';
 import 'package:web_socket_channel/io.dart';
 
 SwitchController switchController = Get.put(SwitchController());
@@ -58,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
     //function to connect
     try {
       channel =
-          IOWebSocketChannel.connect("ws://192.168.0.2:81"); //channel IP : Port
+          IOWebSocketChannel.connect("ws://192.168.4.1:81"); //channel IP : Port
       channel.stream.listen(
         (message) {
           List<String> values = message.split(',');
