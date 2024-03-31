@@ -1,12 +1,14 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, unused_import
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:turtlelectric/devices.dart';
-import 'package:turtlelectric/light.dart';
-import 'package:turtlelectric/menu.dart';
+import 'package:turtlelectric/Chart/gpt_pagelist.dart';
+import 'package:turtlelectric/Menu/devices.dart';
+import 'package:turtlelectric/Menu/light.dart';
+import 'package:turtlelectric/Menu/menu.dart';
+import 'package:turtlelectric/Menu/specs_new.dart';
 import 'package:turtlelectric/Settings/settings.dart';
-import 'package:turtlelectric/specs.dart';
+import 'package:turtlelectric/Menu/specs.dart';
 import 'package:turtlelectric/Get/bools.dart';
 import 'package:web_socket_channel/io.dart';
 
@@ -58,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
     //function to connect
     try {
       channel =
-          IOWebSocketChannel.connect("ws://192.168.4.1:81"); //channel IP : Port
+          IOWebSocketChannel.connect("ws://192.168.0.2:81"); //channel IP : Port
       channel.stream.listen(
         (message) {
           List<String> values = message.split(',');
@@ -225,8 +227,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Aygitlar(
             sendcmd: sendcmd,
           ),
-          Durumlar(
-            sendcmd: sendcmd,
+          ListGpt(
           ),
         ],
       ),

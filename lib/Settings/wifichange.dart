@@ -1,7 +1,7 @@
 // ignore_for_file: camel_case_types, avoid_print
 
 import 'package:flutter/material.dart';
-import 'package:turtlelectric/devices.dart';
+import 'package:turtlelectric/Menu/devices.dart';
 
 class Wifichange extends StatefulWidget {
   final Function sendcmd;
