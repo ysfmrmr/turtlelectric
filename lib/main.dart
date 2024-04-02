@@ -60,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
     //function to connect
     try {
       channel =
-          IOWebSocketChannel.connect("ws://192.168.0.2:81"); //channel IP : Port
+          IOWebSocketChannel.connect("ws://192.168.4.1:81"); //channel IP : Port
       channel.stream.listen(
         (message) {
           List<String> values = message.split(',');
@@ -70,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
           }
           if (values[0] == "wifiischanged") {
             switchController.wifiischanged = true;
-          }
+          } 
 
 //*****************************************************************************************
 

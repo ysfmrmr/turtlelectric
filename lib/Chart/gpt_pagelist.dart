@@ -21,7 +21,7 @@ class _ListGptState extends State<ListGpt> {
   }
 
   Future<void> fetchData() async {
-    final response = await http.get(Uri.parse('http://192.168.0.2:80/data.txt'));
+    final response = await http.get(Uri.parse('http://192.168.4.1/data.txt'));
     if (response.statusCode == 200) {
       final List<dynamic> jsonDataList = jsonDecode(response.body);
       setState(() {
