@@ -3,14 +3,14 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-class ChartIndex extends StatefulWidget {
-  const ChartIndex({super.key});
+class BuildChartAlone extends StatefulWidget {
+  const BuildChartAlone({super.key});
 
   @override
-  State<ChartIndex> createState() => _ChartIndexState();
+  State<BuildChartAlone> createState() => _BuildChartAloneState();
 }
 
-class _ChartIndexState extends State<ChartIndex> {
+class _BuildChartAloneState extends State<BuildChartAlone> {
   late PageController _pageController;
   int _currentIndex = 0;
 
@@ -59,10 +59,16 @@ class _ChartIndexState extends State<ChartIndex> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.centerRight,
-      children: [
-        PageView.builder(
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20.0),
+      child: Container(
+        color: Colors.white,
+        width: 350.0,
+        height: 230.0,
+        child: Stack(
+          alignment: Alignment.centerRight,
+          children: [
+            PageView.builder(
               controller: _pageController,
               itemCount: 4,
               onPageChanged: (int index) {
@@ -77,86 +83,88 @@ class _ChartIndexState extends State<ChartIndex> {
                 );
               },
             ),
-        Positioned(
-          top: 5.0,
-          right: 47.0,
-          child: SizedBox(
-            height: 25.0,
-            width: 250.0,
-            child: SegmentedButton(
-              segments: [
-                ButtonSegment(
-                  value: 0,
-                  label: Container(
-                    alignment: Alignment.center,
-                    width: 60.0,
-                    child: Text(
-                      "6 Saat",
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium!
-                          .copyWith(color: Colors.black),
+            Positioned(
+              top: 5.0,
+              right: 45.0,
+              child: SizedBox(
+                height: 25.0,
+                width: 250.0,
+                child: SegmentedButton(
+                  segments: [
+                    ButtonSegment(
+                      value: 0,
+                      label: Container(
+                        alignment: Alignment.center,
+                        width: 60.0,
+                        child: Text(
+                          "6 Saat",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .copyWith(color: Colors.black),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                ButtonSegment(
-                  value: 1,
-                  label: Container(
-                    alignment: Alignment.center,
-                    width: 60.0,
-                    child: Text(
-                      "12 Saat",
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium!
-                          .copyWith(color: Colors.black),
+                    ButtonSegment(
+                      value: 1,
+                      label: Container(
+                        alignment: Alignment.center,
+                        width: 60.0,
+                        child: Text(
+                          "12 Saat",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .copyWith(color: Colors.black),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                ButtonSegment(
-                  value: 2,
-                  label: Container(
-                    alignment: Alignment.center,
-                    width: 60.0,
-                    child: Text(
-                      "24 Saat",
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium!
-                          .copyWith(color: Colors.black),
+                    ButtonSegment(
+                      value: 2,
+                      label: Container(
+                        alignment: Alignment.center,
+                        width: 60.0,
+                        child: Text(
+                          "24 Saat",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .copyWith(color: Colors.black),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                ButtonSegment(
-                  value: 3,
-                  label: Container(
-                    alignment: Alignment.center,
-                    width: 60.0,
-                    child: Text(
-                      "1 Hafta",
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium!
-                          .copyWith(color: Colors.black),
+                    ButtonSegment(
+                      value: 3,
+                      label: Container(
+                        alignment: Alignment.center,
+                        width: 60.0,
+                        child: Text(
+                          "1 Hafta",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .copyWith(color: Colors.black),
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
+                  selected: {_currentIndex},
+                  onSelectionChanged: (Set<int> selected) {
+                    setState(() {
+                      _currentIndex = selected.first;
+                    });
+                    _pageController.animateToPage(
+                      selected.first,
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeInOut,
+                    );
+                  },
                 ),
-              ],
-              selected: {_currentIndex},
-              onSelectionChanged: (Set<int> selected) {
-                setState(() {
-                  _currentIndex = selected.first;
-                });
-                _pageController.animateToPage(
-                  selected.first,
-                  duration: const Duration(milliseconds: 300),
-                  curve: Curves.easeInOut,
-                );
-              },
+              ),
             ),
-          ),
+          ],
         ),
-      ],
+      ),
     );
   }
 
